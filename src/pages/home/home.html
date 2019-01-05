@@ -1,0 +1,200 @@
+<!-- 
+
+
+  This Project is implemented by Habib AlMawali, and its free to use as it has been created for educational purpose. 
+  Please feel free to give ur feedback anytime.
+  For any help, please request...
+  
+  Contact Details:
+  Instagram: habib_almawali
+  Phone: +968 96939777
+
+ -->
+
+<ion-header no-border>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-8>
+          <ion-title>My Application</ion-title>
+      </ion-col>
+      <ion-col col-4>
+          <ion-segment [(ngModel)]="segment" color="white">
+              <ion-segment-button value="home">
+                <ion-icon name="home"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button value="view">
+                  <ion-icon name="eye"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button value="add">
+                  <ion-icon name="add"></ion-icon>
+              </ion-segment-button>
+            </ion-segment>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+
+  <ion-toolbar padding>
+    
+      <div [ngSwitch]="segment">
+          <ion-list *ngSwitchCase="'home'">
+  
+            <ion-card class="animated pulse">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                    <ion-card-content color="danger">
+                      <ion-icon name="text" style="font-size: 30px; padding-right: 40px; border-right: 3px solid;"></ion-icon>
+                    </ion-card-content>
+                  </ion-col>
+                  <ion-col col-8>
+                    <ion-card-content>
+                      <p class="gray">
+                      <b>Hi {{ name }}</b> 
+                      <br>
+                      Welcome to our App.
+                    </p>
+                    </ion-card-content>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+  
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'view'">
+            
+              <ion-card class="animated pulse">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-4>
+                        <ion-card-content color="danger">
+                          <ion-icon name="list-box" style="font-size: 30px; padding-right: 40px; border-right: 3px solid;"></ion-icon>
+                        </ion-card-content>
+                      </ion-col>
+                      <ion-col col-8>
+                        <ion-card-content>
+                          <p class="gray">
+                          <b>You are now</b> viewing our products.
+                        </p>
+                        </ion-card-content>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card>
+            
+          </ion-list>
+  
+          <ion-list *ngSwitchCase="'add'">
+  
+              <ion-card class="animated pulse">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-4>
+                        <ion-card-content color="danger">
+                          <ion-icon name="arrow-round-down" style="font-size: 30px; padding-right: 40px; border-right: 3px solid;"></ion-icon>
+                        </ion-card-content>
+                      </ion-col>
+                      <ion-col col-8>
+                        <ion-card-content>
+                          <p class="gray">
+                          <b>You are about to {{ action }}</b> product.
+                        </p>
+                        </ion-card-content>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card>
+              
+          </ion-list>
+        </div>
+    
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+    <div [ngSwitch]="segment">
+      <div *ngSwitchCase="'home'" class="animated fadeIn">
+
+        <ion-item>
+          <ion-label stacked>Enter Your Name</ion-label>
+          <ion-input [(ngModel)]="nameInput"></ion-input>
+        </ion-item>
+
+        <div padding>
+          <button ion-button margin-right outline (click)="name=nameInput">
+              Enter
+          </button>
+        </div>
+
+    </div>
+    <div *ngSwitchCase="'view'" class="animated fadeIn">
+
+        <ion-card>
+          <div class="cut" (click)="view()">
+              <img src="https://habibo.net/sample.jpg">
+          </div>
+            <div padding-bottom padding-left padding-right>
+            <ion-card-content>
+              <p>Name:</p> 
+              <p>Price: </p>
+            </ion-card-content>
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small (click)="editor()">
+                  <ion-icon name="options"></ion-icon>
+                  <div>Edit</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-start clear small color="danger" (click)="delete()">
+                  <ion-icon name="trash"></ion-icon>
+                  <div>Delete</div>
+                </button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+
+    </div>
+    <div *ngSwitchCase="'add'" class="animated fadeIn">
+
+        <ion-list>
+            <ion-item>
+              <ion-label stacked>Name</ion-label>
+              <ion-input [(ngModel)]="product.name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Price</ion-label>
+              <ion-input type="number" [(ngModel)]="product.price"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Currency</ion-label>
+                <ion-select [(ngModel)]="product.currency">
+                      <ion-option value="OMR">OMR</ion-option>
+                      <ion-option value="USD">USD</ion-option>
+                  </ion-select>
+              </ion-item>
+            <div text-center margin-top padding>
+              <button *ngIf="!product.id" ion-button margin-right (click)="add()" block>
+                Add
+              </button>
+              <button *ngIf="product.id" ion-button margin-right (click)="edit()" block>
+                Save
+              </button>
+            </div>
+          </ion-list>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border class="animated fadeInUp">
+  <ion-toolbar>
+    <ion-title>
+        Habib Dev.
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+<img class="bg-header animated fadeIn" src="assets/imgs/bg-header.png" alt="">

@@ -1,0 +1,103 @@
+page-home {
+
+    .toolbar-title, p, input, button {
+        font-family: Staatliches;
+    }
+
+    p {
+        font-size: 18px !important;
+        letter-spacing: .5px;
+        line-height: 18px !important;
+    }
+
+    .col, .row {
+        margin: 0;
+        padding: 0;
+    }
+
+    .segment-button {
+        padding: 0 !important;
+    }
+
+    .segment {
+        padding-right: 12px;
+    }
+
+    .toolbar-md {
+        padding-bottom: 0;
+        min-height: 55px;
+    }
+
+    .toolbar-content, .toolbar-content-md {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    ion-header {
+        z-index: 41;
+        ion-navbar {
+            .toolbar-background {
+                background: transparent;
+            }
+        }
+
+        ion-toolbar {
+            .toolbar-background {
+                background: transparent;
+            }
+        }
+        
+        .toolbar-title {
+            margin-top: 4px;
+            color: #fff;
+        }
+    }
+
+    .card-md {
+        border-radius: 10px;
+        box-shadow: 0 1.4px 3px 0 #6b7376, 0 3px 1px -2px #9b63f8, 0 1px 1px 0 #9b63f8 !important;
+    }
+
+    .gray {
+        color: #6b7376;
+    } 
+
+    .bg-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        width: 100%;
+    }
+
+    .cut {
+        position:relative; 
+        display: inline-block;
+        height: 160px;
+        overflow: hidden;
+    }
+
+    .cut img {
+        display:block;
+    }
+
+    .cut:after, .cut:before {
+        position:absolute; 
+        right:0; 
+        bottom:0; 
+        content:'';
+        border-bottom: 100px solid white;
+        border-right: 100vw solid transparent;
+    }
+
+    .cut:hover:after, .cut:hover:before {
+        position:absolute; 
+        right:0; 
+        bottom:0; 
+        content:'';
+        border-bottom: none;
+        border-right: none;
+    }
+    
+}

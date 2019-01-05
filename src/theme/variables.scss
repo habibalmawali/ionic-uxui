@@ -1,0 +1,51 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+@import 'node_modules/animate.sass/scss/animate.scss';
+
+@import "ionic.globals";
+
+$colors: (
+  primary:    #9b63f8,
+  secondary:  #809ffc,
+  pink:     #f07da8,
+  danger: #e0869c,
+  light:      #f8f9fd,
+  dark:       #222,
+  white: #fff,
+  );
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+$segment-button-md-border-bottom-color: transparent;
+$segment-button-md-border-bottom-width: 4px;
+$segment-button-md-icon-size: 3rem;
+$toolbar-md-title-font-size: 26px;
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
