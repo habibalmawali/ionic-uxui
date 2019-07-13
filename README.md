@@ -1,9 +1,7 @@
 # Ionic UI UX Project.
 
 ## Screenshots
-<p align="center">
-<img src="https://habibo.net/uiux.png" />
-</p>
+![uiux](https://user-images.githubusercontent.com/31030616/61168551-06712580-a561-11e9-8fad-5279a31a21fd.png)
 
 ## Prerequisite:
 1. Node.js to be installed.
